@@ -1,0 +1,54 @@
+{
+  "logs": [
+    {
+      "id": 1,
+      "message": "Changed",
+      "attention": false,
+      "date": "11-11-1100",
+      "tech": "Sam Bernstein"
+    },
+    {
+      "id": 2,
+      "message": "Changed 2",
+      "attention": false,
+      "date": "03-23-0030",
+      "tech": "Billy Dickens"
+    },
+    {
+      "id": 3,
+      "message": "Changed 3",
+      "attention": true,
+      "date": "03-23-0100",
+      "tech": "Bill Cosby"
+    },
+    {
+      "id": 4,
+      "message": "Changed 4",
+      "attention": false,
+      "date": "13-13-1500",
+      "tech": "Harvey Weinstein"
+    }
+  ],
+  "techs": [
+    {
+      "firstName": "Samuel",
+      "lastName": "Jackson",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "firstName": "Billy",
+      "lastName": "Dickens"
+    },
+    {
+      "id": 3,
+      "firstName": "Bill",
+      "lastName": "Bisby"
+    },
+    {
+      "id": 4,
+      "firstName": "Marvey",
+      "lastName": "Feintein"
+    }
+  ]
+}
