@@ -19,14 +19,14 @@
       "message": "Changed 3",
       "attention": true,
       "date": "03-23-0100",
-      "tech": "Bill Cosby"
+      "tech": "Dill Bosby"
     },
     {
       "id": 4,
       "message": "Changed 4",
       "attention": false,
       "date": "13-13-1500",
-      "tech": "Harvey Weinstein"
+      "tech": "Marvey Heinstein"
     }
   ],
   "techs": [

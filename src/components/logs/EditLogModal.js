@@ -12,12 +12,17 @@ const EditLogModal = () => {
       M.toast({ html: 'Please enter a message and tech' });
     } else {
       console.log(message, tech, attention);
+
+      //Clear Fields
+      setMessage('');
+      setTech('');
+      setAttention(false);
     }
   };
 
   return (
     <div
-      /*the id of our href should match the following modal's id*/ id='add-log-modal'
+      /*the id of our href should match the following modal's id*/ id='edit-log-modal'
       className='modal'
       style={modalStyle}>
       <div className='modal-content'>
@@ -88,4 +93,4 @@ const modalStyle = {
   height: '75%',
 };
 
-export default AddLogModal;
+export default EditLogModal;
