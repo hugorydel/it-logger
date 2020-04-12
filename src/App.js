@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { Fragment, useEffect } from 'react';
+import SearchBar from './components/layout/SearchBar';
 
 //This brings in the main css
 import 'materialize-css/dist/css/materialize.min.css';
@@ -10,8 +11,12 @@ const App = () => {
     //Initializing Materialize JavaScript
     //Now we can use modals and all that
     M.AutoInit();
-  });
-  return <div className='App'>My Application</div>;
+  }, []);
+  return (
+    <>
+      <SearchBar />
+    </>
+  );
 };
 
 export default App;
