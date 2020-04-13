@@ -11,7 +11,7 @@ const AddBtn = () => {
       <ul>
         <li>
           <a
-            //#tech-list-modal, to reference has to match something with the id/# of tech-list-modal. In this instance that happens to be the TechListModal's first returned div
+            //#tech-list-modal, to reference has to match something with the id/# of tech-list-modal. In this instance that happens to be the TechListModal's first returned div.
             href='#tech-list-modal'
             className='btn-floating green modal-trigger'>
             <i className='material-icons'>person</i>
