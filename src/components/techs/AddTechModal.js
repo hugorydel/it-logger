@@ -1,78 +1,68 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
 
-const AddLogModal = () => {
-  const [message, setMessage] = useState('');
-  const [attention, setAttention] = useState(false);
-  const [tech, setTech] = useState('');
+const AddTechModal = () => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const onSubmit = () => {
-    if (message === '' || tech === '') {
+    if (firstName === '' || lastName === '') {
       //Unobtrusive error messages from materialize basically a popup that goes away itself
-      M.toast({ html: 'Please enter a message and tech' });
+      M.toast({ html: 'Please enter the first and last name' });
     } else {
-      console.log(message, tech, attention);
+      //Upload to database
+      console.log(firstName, lastName);
 
       //Clear Fields
-      setMessage('');
-      setTech('');
-      setAttention(false);
+      setFirstName('');
+      setLastName('');
     }
   };
 
   return (
     <div
-      /*the id of our href should match the following modal's id*/ id='add-log-modal'
-      className='modal'
-      style={modalStyle}>
+      /*the id of our href should match the following modal's id*/ id='add-tech-modal'
+      className='modal'>
       <div className='modal-content'>
-        <h4>Enter System Log</h4>
+        <h4>New Technician</h4>
+        <br />
         <div className='row'>
           <div className='input-field'>
             <input
               type='text'
-              name='message'
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              name='firstName'
+              //The value is the output you receive
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
             />
-            <label htmlFor='message' className='active'>
+            <label
+              //specifies which form element a label is bound to.
+              //You should do this so as https://stackoverflow.com/questions/12894169/what-is-the-html-for-attribute-in-label
+              htmlFor='firstName'
+              className='active'>
               {' '}
-              Log Mesage
+              First Name
             </label>
           </div>
         </div>
 
         <div className='row'>
           <div className='input-field'>
-            <select
-              name='tech'
-              value={tech}
-              className='browser-default'
-              onChange={(e) => setTech(e.target.value)}>
-              <option value='' disabled>
-                Select Technician
-              </option>
-              <option value='John Doe'>John Doe</option>
-              <option value='Sam Doe'>Sam Doe</option>
-              <option value='Bob Dole'>Bob Dole</option>
-            </select>
-          </div>
-        </div>
-
-        <div className='row'>
-          <div className='input-field'>
-            <p>
-              <label>
-                <input
-                  type='checkbox'
-                  className='filled-in'
-                  checked={attention}
-                  value={attention}
-                  onChange={() => setAttention(!attention)}
-                />
-                <span>Needs Attention</span>
-              </label>
-            </p>
+            <input
+              type='text'
+              name='lastName'
+              //The value is the output you receive
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+            <label
+              //specifies which form element a label is bound to.
+              //You should do this so as https://stackoverflow.com/questions/12894169/what-is-the-html-for-attribute-in-label
+              htmlFor='lastName'
+              className='active'>
+              {' '}
+              Last Name
+            </label>
           </div>
         </div>
       </div>
@@ -88,9 +78,4 @@ const AddLogModal = () => {
   );
 };
 
-const modalStyle = {
-  width: '75%',
-  height: '75%',
-};
-
-export default AddLogModal;
+export default AddTechModal;
