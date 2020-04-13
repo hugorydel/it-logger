@@ -15,8 +15,15 @@ const AddLogModal = ({ addLog }) => {
       //Unobtrusive error messages from materialize basically a popup that goes away itself
       M.toast({ html: 'Please enter a message and tech' });
     } else {
-      console.log(message, tech, attention);
+      const newLog = {
+        message,
+        tech,
+        attention,
+        date: new Date(),
+      };
+      addLog(newLog);
 
+      M.toast({ html: `Log added by ${tech}` });
       //Clear Fields
       setMessage('');
       setTech('');
@@ -56,6 +63,7 @@ const AddLogModal = ({ addLog }) => {
               <option value='' disabled>
                 Select Technician
               </option>
+
               <option value='John Doe'>John Doe</option>
               <option value='Sam Doe'>Sam Doe</option>
               <option value='Bob Dole'>Bob Dole</option>
@@ -92,10 +100,14 @@ const AddLogModal = ({ addLog }) => {
   );
 };
 
+AddLogModal.propTypes = {
+  addLog: PropTypes.func.isRequired,
+};
+
 const modalStyle = {
   width: '75%',
   height: '75%',
 };
 
-//Here we don't have to map out the state (null) because, unlike the Logs.js code which GETs the state, AddLogModal.js pushes logs (POSTs) to the state.
+//Here we don't have to map out the state (its null) because, unlike the Logs.js code which GETs the state (has to interact with it in some way), AddLogModal.js pushes logs (POSTs) to the state so we don't care about the state's contents at all.
 export default connect(null, { addLog })(AddLogModal);

@@ -9,6 +9,7 @@ import { getLogs } from '../../actions/logActions';
 
 const Logs = ({ log: { logs, loading }, getLogs }) => {
   //Gets Logs once
+  //Once you add, edit, or delete a log the website gets the updated data by way of useEffect
   useEffect(() => {
     getLogs();
     //esling-disable-next-line

@@ -1,4 +1,4 @@
-import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOGS } from './types';
+import { GET_LOGS, SET_LOADING, LOGS_ERROR, ADD_LOG } from './types';
 
 //           Easily Seen Way
 // export const getLogs = () => {
@@ -55,7 +55,7 @@ export const addLog = (log) => async (dispatch) => {
     const data = await res.json();
 
     dispatch({
-      type: ADD_LOGS,
+      type: ADD_LOG,
       payload: data,
     });
   } catch (err) {
