@@ -18,7 +18,7 @@ function LogItem({ log }) {
           <span className='black-text'>{log.tech}</span> on{' '}
           {/*The below moment's format determines the exact order and placement of the times. Mind that if Moment component is left without log.date the current date will be the date given */}
           <Moment format='MMMM Do YYYY, hh:mm:ss a'>{log.date}</Moment>
-          <a href='' className='secondary-content'>
+          <a href='#!' className='secondary-content'>
             <i className='material-icons grey-text'>delete</i>
           </a>
         </span>
