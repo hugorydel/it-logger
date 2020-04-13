@@ -1,5 +1,27 @@
 {
-  "logs": [],
+  "logs": [
+    {
+      "message": "Change network card in server double o 7",
+      "tech": "John Doe",
+      "attention": true,
+      "date": "2020-04-13T21:32:08.599Z",
+      "id": 1
+    },
+    {
+      "message": "Fixed Hard Drive",
+      "tech": "Sam Doe",
+      "attention": false,
+      "date": "2020-04-13T21:32:21.783Z",
+      "id": 2
+    },
+    {
+      "message": "I hate this job! Bob",
+      "tech": "Bob Dole",
+      "attention": false,
+      "date": "2020-04-13T21:32:47.243Z",
+      "id": 3
+    }
+  ],
   "techs": [
     {
       "firstName": "Samuel",

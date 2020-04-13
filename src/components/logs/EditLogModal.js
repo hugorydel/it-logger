@@ -11,8 +11,6 @@ const EditLogModal = () => {
       //Unobtrusive error messages from materialize basically a popup that goes away itself
       M.toast({ html: 'Please enter a message and tech' });
     } else {
-      console.log(message, tech, attention);
-
       //Clear Fields
       setMessage('');
       setTech('');
