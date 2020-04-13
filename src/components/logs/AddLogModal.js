@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+//Because redux actions are prop types it is common to include the prop types module too
+import PropTypes from 'prop-types';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { addLog } from '../../actions/logActions';
 
-const AddLogModal = () => {
+const AddLogModal = ({ addLog }) => {
   const [message, setMessage] = useState('');
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState('');
@@ -93,4 +97,5 @@ const modalStyle = {
   height: '75%',
 };
 
-export default AddLogModal;
+//Here we don't have to map out the state (null) because, unlike the Logs.js code which GETs the state, AddLogModal.js pushes logs (POSTs) to the state.
+export default connect(null, { addLog })(AddLogModal);
