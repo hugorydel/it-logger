@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import TechItem from './TechItem';
+import { getTechs } from '../../actions/techActions';
 
-const TechListModal = () => {
+const TechListModal = ({ getTechs }) => {
   const [techs, setTechs] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -26,11 +29,13 @@ const TechListModal = () => {
         <h4> Technicians </h4>
         <ul className='collection'>
           {!loading &&
-            techs.map((tech) => <TechItem key={tech.id} tech={tech} />)}
+            techs.map(tech => <TechItem key={tech.id} tech={tech} />)}
         </ul>
       </div>
     </div>
   );
 };
 
-export default TechListModal;
+const mapStateToProps = state => ({});
+
+export default connect(mapStateToProps, { getTechs })(TechListModal);

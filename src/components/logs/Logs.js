@@ -43,4 +43,5 @@ const mapStateToProps = state => ({
   log: state.log,
 });
 
+//Imports data from the store
 export default connect(mapStateToProps, { getLogs })(Logs);
