@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import M from 'materialize-css/dist/js/materialize.min.js';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { addTech } from '../../actions/techActions';
 
-const AddTechModal = () => {
+const AddTechModal = ({ addTech }) => {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
 
@@ -11,8 +14,8 @@ const AddTechModal = () => {
       M.toast({ html: 'Please enter the first and last name' });
     } else {
       //Upload to database
-      console.log(firstName, lastName);
-
+      addTech({ firstName, lastName });
+      M.toast({ html: `Technician ${firstName} ${lastName} Added` });
       //Clear Fields
       setFirstName('');
       setLastName('');
@@ -33,7 +36,7 @@ const AddTechModal = () => {
               name='firstName'
               //The value is the output you receive
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={e => setFirstName(e.target.value)}
             />
             <label
               //specifies which form element a label is bound to.
@@ -53,7 +56,7 @@ const AddTechModal = () => {
               name='lastName'
               //The value is the output you receive
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={e => setLastName(e.target.value)}
             />
             <label
               //specifies which form element a label is bound to.
@@ -78,4 +81,8 @@ const AddTechModal = () => {
   );
 };
 
-export default AddTechModal;
+AddTechModal.propTypes = {
+  addTech: PropTypes.func.isRequired,
+};
+
+export default connect(null, { addTech })(AddTechModal);
