@@ -27,7 +27,7 @@ const Logs = ({ log: { logs, loading }, getLogs }) => {
       {!loading && logs.length === 0 ? (
         <p className='center'>No logs to show</p>
       ) : (
-        logs.map((log) => <LogItem log={log} key={log.id} />)
+        logs.map(log => <LogItem log={log} key={log.id} />)
       )}
     </ul>
   );
@@ -38,7 +38,7 @@ Logs.propTypes = {
   getLogs: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   //state.log is the prop (it's a custom name but it has to equal that of the reducers/index.js prop)
   log: state.log,
 });

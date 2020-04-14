@@ -44,11 +44,11 @@ const AddLogModal = ({ addLog }) => {
               type='text'
               name='message'
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={e => setMessage(e.target.value)}
             />
             <label htmlFor='message' className='active'>
               {' '}
-              Log Mesage
+              Log Message
             </label>
           </div>
         </div>
@@ -59,7 +59,7 @@ const AddLogModal = ({ addLog }) => {
               name='tech'
               value={tech}
               className='browser-default'
-              onChange={(e) => setTech(e.target.value)}>
+              onChange={e => setTech(e.target.value)}>
               <option value='' disabled>
                 Select Technician
               </option>

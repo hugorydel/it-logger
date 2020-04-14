@@ -96,7 +96,7 @@ export const deleteLog = id => async dispatch => {
   }
 };
 
-//Update log from server
+//Update log on server
 
 export const updateLog = log => async dispatch => {
   try {
@@ -104,16 +104,17 @@ export const updateLog = log => async dispatch => {
     setLoading();
 
     //This updates it on the backend
-    await fetch(`/logs/${log.id}`, {
+    const res = await fetch(`/logs/${log.id}`, {
       method: 'PUT',
       body: JSON.stringify(log),
       headers: { 'Content-Type': 'application/json' },
     });
+    const data = await res.json();
 
     //This does it on the frontend (well sets it up so as we can show it in our component)
     dispatch({
       type: UPDATE_LOG,
-      payload: log,
+      payload: data,
     });
   } catch (err) {
     dispatch({
