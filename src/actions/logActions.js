@@ -7,6 +7,7 @@ import {
   UPDATE_LOG,
   SET_CURRENT,
   CLEAR_CURRENT,
+  SEARCH_LOGS,
 } from './types';
 
 //           Easily Seen Way
@@ -114,6 +115,29 @@ export const updateLog = log => async dispatch => {
     //This does it on the frontend (well sets it up so as we can show it in our component)
     dispatch({
       type: UPDATE_LOG,
+      payload: data,
+    });
+  } catch (err) {
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err.response.data,
+    });
+  }
+};
+
+//Search server's logs
+export const searchLogs = text => async dispatch => {
+  try {
+    //Sets loading to true
+    setLoading();
+
+    //This return filtered logs object (they're not deleted just filtered)
+    //THIS FILTER IS REALLY GOOD!!!
+    const res = await fetch(`/logs?q=${text}`);
+    const data = await res.json();
+
+    dispatch({
+      type: SEARCH_LOGS,
       payload: data,
     });
   } catch (err) {
