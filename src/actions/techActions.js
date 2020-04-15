@@ -27,6 +27,28 @@ export const getTechs = () => async dispatch => {
   }
 };
 
+// Get techs from server
+export const deleteTech = id => async dispatch => {
+  try {
+    //Sets loading to true
+    setLoading();
+
+    await fetch(`/techs/${id}`, {
+      method: 'DELETE',
+    });
+
+    dispatch({
+      type: DELETE_TECH,
+      payload: id,
+    });
+  } catch (err) {
+    dispatch({
+      type: TECHS_ERROR,
+      payload: err.response.statusText,
+    });
+  }
+};
+
 export const addTech = tech => async dispatch => {
   try {
     //Sets loading to true
@@ -38,9 +60,7 @@ export const addTech = tech => async dispatch => {
       body: JSON.stringify(tech),
       headers: { 'Content-Type': 'application/json' },
     });
-    console.log(res);
     const data = await res.json();
-
     //Gets UI to update
     dispatch({
       type: ADD_TECH,
